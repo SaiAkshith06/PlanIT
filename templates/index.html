@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanIt - AI Multi-Agent Planner</title>
+
+    <!-- Link to our custom stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar Controls -->
+        <aside class="sidebar glass-panel">
+            <h1 class="logo">Plan<span>It</span>.</h1>
+            <p class="subtitle">AI Multi-Agent Trip Planner</p>
+
+            <form id="plan-form">
+                <div class="input-group">
+                    <label for="source">Source</label>
+                    <div class="input-wrapper" id="source-wrapper">
+                        <input type="text" id="source" name="source" placeholder="Where are you starting?"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="destination">Destination</label>
+                    <div class="input-wrapper" id="destination-wrapper">
+                        <input type="text" id="destination" name="destination" placeholder="Where do you want to go?"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="priority">Optimization Priority</label>
+                    <select id="priority" name="priority">
+                        <option value="fast">⚡ Fastest Route (Time Agent Focus)</option>
+                        <option value="cheap">💰 Cheapest Route (Cost Agent Focus)</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submit-btn" class="primary-btn">
+                    <span>Generate Optimized Plan</span>
+                </button>
+            </form>
+
+            <!-- Results container hidden by default -->
+            <div id="results-container" class="results-container hidden">
+                <h3>Optimal AI Route</h3>
+                <div id="best-route-card" class="result-card highlight">
+                    <!-- Dynamic content injected here -->
+                </div>
+
+                <h4 class="mt-4">Evaluated Alternatives</h4>
+                <div id="alt-routes-container" class="alt-routes">
+                    <!-- Dynamic content injected here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Map Area -->
+        <main class="map-view">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS for Open Source Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Custom Main Script -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
