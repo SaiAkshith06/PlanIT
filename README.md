@@ -1,4 +1,6 @@
 # PlanIT
+⚠️ **Project Status:**
+This project is currently under active development. New features such as enhanced route visualization, improved agent coordination, and additional optimization modules will be added in upcoming updates.
 
 PlanIt is a web-based multi-agent AI system that generates optimized travel routes between locations based on user preferences such as **fastest route** or **cheapest route**.
 
